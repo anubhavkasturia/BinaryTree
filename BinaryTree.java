@@ -111,9 +111,66 @@ public int min() {
   return (Math.max(lheight, rheight)+1);
 }
 
+    
+    public boolean find(int findelem){
+        return find(this.root, findelem);
+    }
+    private static boolean find (Node node,int finde){
+        if(node==null){
+            return false;
+        }
+        if(node.data==finde){
+            return true;
+        }
+        else {
+            
+            boolean findleft=find(node.left, finde);
+            if(findleft==true){
+                return true;
+            }else{
 
+            boolean findright=find(node.right, finde);
+                return findright;
+        }
+    }
+    }
+    public void preOrder(){
+        preOrder(this.root);
+    }
+    private static void preOrder(Node node){
+        if(node==null){
+            return;
+        }
+        System.out.println(node.data);
+        preOrder(node.left);
+        preOrder(node.right);
+        
+    }
+    public void inOrder(){
+        inOrder(this.root);
+    }
+    private static void inOrder(Node node){
+        if(node==null){
+            return;
+        }
+        
+        inOrder(node.left);
+        System.out.println(node.data);
+        inOrder(node.right);
+        
+    }
+    public void postOrder(){
+        postOrder(this.root);
+    }
+    private static void postOrder(Node node){
+        if(node==null){
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.data);
 
-
+    }
 
 
 }

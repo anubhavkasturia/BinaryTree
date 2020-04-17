@@ -128,7 +128,6 @@ public int min() {
             if(findleft==true){
                 return true;
             }else{
-
             boolean findright=find(node.right, finde);
                 return findright;
         }
@@ -171,6 +170,41 @@ public int min() {
         System.out.println(node.data);
 
     }
+    public void printChildAloneSiblings(){
+        printChildAloneSiblingsp(root,root.left);
+        printChildAloneSiblingsp(root,root.right);
 
+        
+    }
+    private static void printChildAloneSiblingsp(Node parent,Node child){
+        if(child==null){
+            return;
+        }
+        if(parent.left==null && parent.right==child || parent.left==child && parent.right==null ){
+            System.out.println(child.data);
+        }
+    printChildAloneSiblingsp(child, child.left);
+    printChildAloneSiblingsp(child, child.right);
+}
 
+public void removeLeaves(){
+    removeLeaves(root,root.left);
+    removeLeaves(root,root.right);
+
+    
+}
+private static void removeLeaves(Node parent,Node child){
+    if(child==null){
+        return;
+    }
+    if(child.left==null && child.right==null){
+        if(child==parent.left){
+            parent.left=null;
+        }else if(child==parent.right){
+            parent.right=null;
+        }
+    }
+    removeLeaves(child, child.left);
+    removeLeaves(child, child.right);
+}
 }

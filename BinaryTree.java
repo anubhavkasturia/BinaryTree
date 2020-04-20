@@ -1,4 +1,4 @@
-
+import java.util.LinkedList;
 
 public class BinaryTree{
    
@@ -206,5 +206,38 @@ private static void removeLeaves(Node parent,Node child){
     }
     removeLeaves(child, child.left);
     removeLeaves(child, child.right);
+}
+public void levelOrder(){
+levelOrder(root);
+}
+private void levelOrder(Node root){
+    LinkedList<Node> queue=new LinkedList<>();
+    
+
+    queue.addLast(root);
+    queue.addLast(null);
+    
+
+    while(queue.size()!=0){
+        Node temp=queue.removeFirst();
+        if(temp!=null){
+        System.out.print(temp.data + " ");
+
+            if(temp.left!=null){
+                queue.addLast(temp.left);
+            }
+            if(temp.right!=null){
+                queue.addLast(temp.right);
+            
+        }
+    }
+     if(temp==null){
+        
+        System.out.println();
+        if(queue.size()>0){
+            queue.addLast(null);
+        }
+    }
+    }
 }
 }

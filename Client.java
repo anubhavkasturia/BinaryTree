@@ -14,7 +14,8 @@ public static void main(String[] args) {
     // bt.inOrder();
     // bt.printChildAloneSiblings();
     System.out.println();
-    bt.removeLeaves();
-    bt.display();
+    // bt.removeLeaves();
+    bt.levelOrder();
+    // bt.display();
 }
 }

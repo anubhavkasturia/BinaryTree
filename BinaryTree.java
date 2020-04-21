@@ -240,4 +240,23 @@ private void levelOrder(Node root){
     }
     }
 }
+public void rootToLeafPathTargetSum(int tar){
+    rootToLeafPathTargetSump(this.root,0," ",tar);
+}
+private void rootToLeafPathTargetSump(Node node,int ssf,String psf,int tar){
+    if(node==null){
+        return;
+    }
+    if(node.left==null || node.right==null){
+        if(node.data+ssf<tar){
+        System.out.println(psf+" "+node.data);
+        return;
+        }
+    }
+    rootToLeafPathTargetSump(node.left, ssf+node.data, psf+" "+node.data, tar);
+    rootToLeafPathTargetSump(node.right, ssf+node.data, psf+" "+node.data, tar);
+    
+}
+
+
 }
